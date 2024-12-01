@@ -2,13 +2,13 @@ name: Delivery
 
 on:
   workflow_run:
-    workflows: ["Build and Test"]  # Remplace par le nom exact de ton premier workflow
+    workflows: ["Build And Test"]  # Le nom exact du workflow que tu veux suivre
     types:
-      - completed
+      - completed  # S'exécute lorsque le workflow Build and Test est terminé
 
 jobs:
   deliver:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}  # Seulement si le workflow précédent a réussi
     runs-on: windows-latest
 
     steps:
@@ -18,30 +18,27 @@ jobs:
     - name: Download build artifact
       uses: actions/download-artifact@v4
       with:
-        name: Build-Output  # Nom de l'artefact que tu as uploadé dans le premier workflow
-        path: build_output  # Répertoire où tu veux stocker les artefacts téléchargés
+        name: Build-Output-${{ github.event.workflow_run.id }}  # Utilisation du run_id du workflow Build and Test
+        path: build_output  # Le dossier où tu veux télécharger l'artefact
 
     - name: List downloaded artifacts
-      run: dir build_output  # Liste les fichiers dans le répertoire où les artefacts ont été téléchargés
-
-    # Si tu veux créer un build portable à partir des artefacts, tu peux faire comme suit :
+      run: dir build_output  # Afficher le contenu du dossier build_output pour vérifier les fichiers téléchargés
+    
     - name: Prepare portable build
       run: |
         mkdir out
-        xcopy build_output\PdfLocker\bin\Release\* out\Portable /s /i  # Vérifie le chemin exact des artefacts dans "build_output"
+        xcopy build_output\* out\Portable /s /i
 
-    # Ensuite, on peut uploader ce build portable sous forme d'artefact
     - name: Upload portable build as artifact
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Portable-Build
-        path: out\Portable  # Le répertoire où tu as préparé ton build portable
+        path: out\Portable
 
-    # Finalement, on crée une release GitHub
     - name: Create GitHub Release
       uses: ncipollo/release-action@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        tag: v1.0.${{ github.run_number }}  # Version unique pour chaque run
-        releaseName: "Portable Release v1.0.${{ github.run_number }}"  # Nom de la release
-        files: out\Portable\*  # Les fichiers que tu veux inclure dans la release GitHub
+        tag: v1.0.${{ github.run_number }}
+        releaseName: "Portable Release v1.0.${{ github.run_number }}"
+        files: out\Portable\*
