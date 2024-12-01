@@ -40,7 +40,7 @@ jobs:
     - name: Execute unit tests
       run: dotnet vstest $env:Test_Project_Dir\bin\${{ matrix.configuration }}\UnitTest.dll
     - name: Upload artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: Build-Output
         path: PdfLocker\bin\${{matrix.configuration}}
