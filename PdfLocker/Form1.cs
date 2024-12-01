@@ -13,27 +13,26 @@ namespace PdfLocker
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(LockPasswordTextBox.Text != "")
+            if (LockPasswordTextBox.Text != "")
             {
                 Clipboard.SetText(LockPasswordTextBox.Text);
             }
-
         }
 
         private void LockInputFileButton_Click(object sender, EventArgs e)
         {
-            // Créer une boîte de dialogue pour sélectionner un fichier
+            // Create a dialog box to select a file
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Sélectionnez un fichier";
-            openFileDialog.Filter = "Fichiers PDF|*.pdf|Tous les fichiers|*.*";  // Exemple de filtre pour PDF
+            openFileDialog.Title = "Select a file";
+            openFileDialog.Filter = "PDF Files|*.pdf|All files|*.*";  // Example filter for PDFs
 
-            // Si l'utilisateur sélectionne un fichier
+            // If the user selects a file
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // Le chemin du fichier sélectionné
+                // The selected file path
                 string selectedFilePath = openFileDialog.FileName;
 
-                // Afficher un message avec le chemin du fichier sélectionné
+                // Display a message with the selected file path
                 LockInputFileTextBox.Text = selectedFilePath;
             }
         }
@@ -44,29 +43,29 @@ namespace PdfLocker
             {
                 using (SaveFileDialog saveFileDialog = new SaveFileDialog())
                 {
-                    saveFileDialog.Title = "Choisissez un emplacement pour enregistrer le fichier PDF";
-                    saveFileDialog.Filter = "Fichiers PDF (*.pdf)|*.pdf";
+                    saveFileDialog.Title = "Choose a location to save the PDF file";
+                    saveFileDialog.Filter = "PDF Files (*.pdf)|*.pdf";
                     saveFileDialog.DefaultExt = "pdf";
-                    saveFileDialog.FileName = "NouveauFichier.pdf";
+                    saveFileDialog.FileName = "NewFile.pdf";
 
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         string selectedPath = saveFileDialog.FileName;
 
-                        // Vérifier si le fichier existe et le libérer si nécessaire
+                        // Check if the file exists and release it if necessary
                         if (File.Exists(selectedPath))
                         {
                             try
                             {
                                 using (FileStream fs = File.Open(selectedPath, FileMode.Open, FileAccess.Read, FileShare.Read))
                                 {
-                                    // Si aucune exception, le fichier est accessible
+                                    // If no exception, the file is accessible
                                 }
                             }
                             catch (IOException ex)
                             {
-                                MessageBox.Show($"Le fichier est déjà utilisé par un autre processus : {ex.Message}");
-                                return; // Arrêter le processus si le fichier est verrouillé
+                                MessageBox.Show($"The file is already in use by another process: {ex.Message}");
+                                return; // Stop the process if the file is locked
                             }
                         }
 
@@ -76,7 +75,7 @@ namespace PdfLocker
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur : {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}");
             }
 
         }
@@ -85,58 +84,57 @@ namespace PdfLocker
         {
             try
             {
-                // Récupérer le chemin du fichier d'entrée et de sortie
-                string inputFilePath = LockInputFileTextBox.Text; // Chemin du fichier PDF existant
-                string outputFilePath = LockOutputFileTextBox.Text;     // Chemin de sortie pour le nouveau fichier PDF
-                string password = LockPasswordTextBox.Text;          // Mot de passe
+                // Get the input and output file paths
+                string inputFilePath = LockInputFileTextBox.Text; // Path of the existing PDF file
+                string outputFilePath = LockOutputFileTextBox.Text;     // Output path for the new PDF file
+                string password = LockPasswordTextBox.Text;          // Password
                 Tools.PDFManager pdfManager = new Tools.PDFManager();
 
                 if (string.IsNullOrEmpty(inputFilePath) || string.IsNullOrEmpty(outputFilePath) || string.IsNullOrEmpty(password))
                 {
-                    MessageBox.Show("Veuillez remplir tous les champs.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Vérifier si le fichier d'entrée existe
+                // Check if the input file exists
 
                 if (!File.Exists(inputFilePath))
                 {
-                    MessageBox.Show("Le fichier d'entrée n'existe pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The input file does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // Appeler la méthode pour protéger le PDF avec un mot de passe
+                // Call the method to lock the PDF with a password
                 pdfManager.LockPDF(inputFilePath, outputFilePath, password);
 
-                MessageBox.Show("Le fichier PDF a été protégé avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("The PDF file has been successfully protected!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Optionnel : Ouvrir le PDF généré
-                if (MessageBox.Show("Voulez-vous ouvrir le fichier PDF ?", "Ouvrir PDF", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                // Optionally: Open the generated PDF
+                if (MessageBox.Show("Do you want to open the PDF file?", "Open PDF", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     System.Diagnostics.Process.Start("explorer.exe", outputFilePath);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Une erreur est survenue : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void UnLockInputFileButton_Click(object sender, EventArgs e)
         {
-
-            // Créer une boîte de dialogue pour sélectionner un fichier
+            // Create a dialog box to select a file
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Sélectionnez un fichier";
-            openFileDialog.Filter = "Fichiers PDF|*.pdf|Tous les fichiers|*.*";  // Exemple de filtre pour PDF
+            openFileDialog.Title = "Select a file";
+            openFileDialog.Filter = "PDF Files|*.pdf|All files|*.*";  // Example filter for PDFs
 
-            // Si l'utilisateur sélectionne un fichier
+            // If the user selects a file
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // Le chemin du fichier sélectionné
+                // The selected file path
                 string selectedFilePath = openFileDialog.FileName;
 
-                // Afficher un message avec le chemin du fichier sélectionné
+                // Display a message with the selected file path
                 UnlockInputFileTextBox.Text = selectedFilePath;
             }
         }
@@ -147,29 +145,29 @@ namespace PdfLocker
             {
                 using (SaveFileDialog saveFileDialog = new SaveFileDialog())
                 {
-                    saveFileDialog.Title = "Choisissez un emplacement pour enregistrer le fichier PDF";
-                    saveFileDialog.Filter = "Fichiers PDF (*.pdf)|*.pdf";
+                    saveFileDialog.Title = "Choose a location to save the PDF file";
+                    saveFileDialog.Filter = "PDF Files (*.pdf)|*.pdf";
                     saveFileDialog.DefaultExt = "pdf";
-                    saveFileDialog.FileName = "NouveauFichier.pdf";
+                    saveFileDialog.FileName = "NewFile.pdf";
 
                     if (saveFileDialog.ShowDialog() == DialogResult.OK)
                     {
                         string selectedPath = saveFileDialog.FileName;
 
-                        // Vérifier si le fichier existe et le libérer si nécessaire
+                        // Check if the file exists and release it if necessary
                         if (File.Exists(selectedPath))
                         {
                             try
                             {
                                 using (FileStream fs = File.Open(selectedPath, FileMode.Open, FileAccess.Read, FileShare.Read))
                                 {
-                                    // Si aucune exception, le fichier est accessible
+                                    // If no exception, the file is accessible
                                 }
                             }
                             catch (IOException ex)
                             {
-                                MessageBox.Show($"Le fichier est déjà utilisé par un autre processus : {ex.Message}");
-                                return; // Arrêter le processus si le fichier est verrouillé
+                                MessageBox.Show($"The file is already in use by another process: {ex.Message}");
+                                return; // Stop the process if the file is locked
                             }
                         }
 
@@ -179,7 +177,7 @@ namespace PdfLocker
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erreur : {ex.Message}");
+                MessageBox.Show($"Error: {ex.Message}");
             }
 
         }
@@ -188,33 +186,33 @@ namespace PdfLocker
         {
             try
             {
-                // Récupérer le chemin du fichier d'entrée et de sortie
-                string inputFilePath = UnlockInputFileTextBox.Text; // Chemin du fichier PDF existant
-                string outputFilePath = UnlockOutputFileTextBox.Text;     // Chemin de sortie pour le nouveau fichier PDF
-                string password = UnlockPasswordTextBox.Text;          // Mot de passe
+                // Get the input and output file paths
+                string inputFilePath = UnlockInputFileTextBox.Text; // Path of the existing PDF file
+                string outputFilePath = UnlockOutputFileTextBox.Text;     // Output path for the new PDF file
+                string password = UnlockPasswordTextBox.Text;          // Password
                 Tools.PDFManager pdfManager = new Tools.PDFManager();
 
                 if (string.IsNullOrEmpty(inputFilePath) || string.IsNullOrEmpty(outputFilePath) || string.IsNullOrEmpty(password))
                 {
-                    MessageBox.Show("Veuillez remplir tous les champs.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Please fill in all fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
 
-                // Vérifier si le fichier d'entrée existe
+                // Check if the input file exists
 
                 if (!File.Exists(inputFilePath))
                 {
-                    MessageBox.Show("Le fichier d'entrée n'existe pas.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The input file does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // Appeler la méthode pour protéger le PDF avec un mot de passe
+                // Call the method to unlock the PDF with the password
                 pdfManager.UnlockPdf(inputFilePath, outputFilePath, password);
 
-                MessageBox.Show("Le fichier PDF a été dévérouillé avec succès !", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("The PDF file has been successfully unlocked!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Optionnel : Ouvrir le PDF généré
-                if (MessageBox.Show("Voulez-vous ouvrir le fichier PDF ?", "Ouvrir PDF", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                // Optionally: Open the generated PDF
+                if (MessageBox.Show("Do you want to open the PDF file?", "Open PDF", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
                     System.Diagnostics.Process.Start("explorer.exe", outputFilePath);
                 }
@@ -224,25 +222,25 @@ namespace PdfLocker
 
         private void buttonPaste_Click(object sender, EventArgs e)
         {
-            // Vérifier si le presse-papiers contient du texte
+            // Check if the clipboard contains text
             if (Clipboard.ContainsText())
             {
-                // Récupérer le texte du presse-papiers et le placer dans le TextBox
+                // Get the text from the clipboard and place it in the TextBox
                 UnlockPasswordTextBox.Text = Clipboard.GetText();
             }
         }
 
         private void lockPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowTab(this.tabControl1 , 0);
+            ShowTab(this.tabControl1, 0);
         }
 
         private void ShowTab(TabControl tabControl, int tabIndex)
         {
-            // Assurer que le TabControl est visible
+            // Ensure the TabControl is visible
             //tabControl.Visible = true;
 
-            // Sélectionner l'onglet en fonction de l'indice
+            // Select the tab based on the index
             tabControl.SelectedIndex = tabIndex;
         }
 
@@ -276,7 +274,6 @@ namespace PdfLocker
             this.UnlockInvisiblePasswordButton.Enabled = true;
             this.UnlockInvisiblePasswordButton.Visible = true;
             this.UnlockPasswordTextBox.PasswordChar = '\0';
-
         }
 
         private void UnlockInvisiblePasswordButton_Click(object sender, EventArgs e)
@@ -297,7 +294,6 @@ namespace PdfLocker
                 checkBoxNumberPassword.Checked,
                 checkBoxSymbolPassword.Checked
             );
-
         }
 
         private void checkBoxLowercasePassword_CheckedChanged(object sender, EventArgs e)
@@ -343,7 +339,6 @@ namespace PdfLocker
                 checkBoxNumberPassword.Checked,
                 checkBoxSymbolPassword.Checked
             );
-
         }
     }
 }

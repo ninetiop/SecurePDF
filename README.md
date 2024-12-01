@@ -32,11 +32,7 @@ A Windows application to securely lock and unlock PDF files with a password. ðŸš
     - Click on `Upload` to select a locked PDF.
     - Enter the correct password.
     - Choose an output location and click `Unlock`.
-
-3. **Password Generator**:
-    - Use the `Generate Password` button to create a secure password.
-    - Copy the generated password to the clipboard.
-
+    
 ## Pay Me a Coffee â˜•
 Love the app? Consider supporting me!
 
