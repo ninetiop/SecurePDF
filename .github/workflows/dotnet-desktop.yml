@@ -29,6 +29,8 @@ jobs:
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
 
+    - name: Restore NuGet packages
+      run: nuget restore $env:Solution_Name
     - name: Restore the application
       run: msbuild $env:Solution_Name /t:Restore /p:Configuration=${{ matrix.configuration }}
     - name: Build the unit test project
