@@ -39,6 +39,12 @@ jobs:
       run: msbuild $env:Test_Project_Path /p:Configuration=${{ matrix.configuration }}
     - name: Execute unit tests
       run: dotnet vstest $env:Test_Project_Dir\bin\${{ matrix.configuration }}\UnitTest.dll
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+        name: Build-Output
+        path: PdfLocker\bin\${{matrix.configuration}}
+    
 
     # Décoder le certificat PFX à partir des secrets GitHub
     #- name: Decode the pfx
