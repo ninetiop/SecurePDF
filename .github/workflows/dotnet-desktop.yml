@@ -16,6 +16,7 @@ jobs:
 
     env:
       Solution_Name: PdfLocker.sln  # Nom de la solution
+      Test_Project_Dir: UnitTest
       Test_Project_Path: UnitTest\UnitTest.csproj  # Chemin vers ton projet de tests unitaires
       Wap_Project_Directory: WapProj  # Répertoire de ton projet WAP
       Wap_Project_Path: WapProj\WapProj.wapproj  # Chemin complet vers ton fichier WAP
@@ -36,7 +37,7 @@ jobs:
     - name: Build the unit test project
       run: msbuild $env:Test_Project_Path /p:Configuration=${{ matrix.configuration }}
     - name: Execute unit tests
-      run: dotnet vstest $env:Test_Project_Path/bin/${{ matrix.configuration }}/UnitTest.dll
+      run: dotnet vstest $env:Test_Project_Dir/bin/${{ matrix.configuration }}/UnitTest.dll
 
     # Décoder le certificat PFX à partir des secrets GitHub
     - name: Decode the pfx
