@@ -42,7 +42,7 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: Build-Output
+        name: Build-Output-${{ github.run_id }} 
         path: PdfLocker\bin\${{matrix.configuration}}
     
 
