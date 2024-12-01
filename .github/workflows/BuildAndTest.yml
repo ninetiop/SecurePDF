@@ -1,4 +1,4 @@
-name: .NET Framework Desktop
+name: Build And Test
 
 on:
   push:
