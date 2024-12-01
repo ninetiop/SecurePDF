@@ -2,7 +2,7 @@ name: Delivery
 
 on:
   workflow_run:
-    workflows: ["Build and Test"]
+    workflows: ["Build and Test"]  # Remplace par le nom exact de ton premier workflow
     types:
       - completed
 
@@ -12,30 +12,36 @@ jobs:
     runs-on: windows-latest
 
     steps:
-    - name: Checkout
+    - name: Checkout the code
       uses: actions/checkout@v4
 
     - name: Download build artifact
       uses: actions/download-artifact@v3
       with:
-        name: Build-Output
-        path: build
+        name: Build-Output  # Nom de l'artefact que tu as uploadé dans le premier workflow
+        path: build_output  # Répertoire où tu veux stocker les artefacts téléchargés
 
+    - name: List downloaded artifacts
+      run: dir build_output  # Liste les fichiers dans le répertoire où les artefacts ont été téléchargés
+
+    # Si tu veux créer un build portable à partir des artefacts, tu peux faire comme suit :
     - name: Prepare portable build
       run: |
         mkdir out
-        xcopy build\ out\Portable /s /i
+        xcopy build_output\PdfLocker\bin\Release\* out\Portable /s /i  # Vérifie le chemin exact des artefacts dans "build_output"
 
+    # Ensuite, on peut uploader ce build portable sous forme d'artefact
     - name: Upload portable build as artifact
       uses: actions/upload-artifact@v3
       with:
         name: Portable-Build
-        path: out\Portable
+        path: out\Portable  # Le répertoire où tu as préparé ton build portable
 
+    # Finalement, on crée une release GitHub
     - name: Create GitHub Release
       uses: ncipollo/release-action@v1
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        tag: v1.0.${{ github.run_number }}
-        releaseName: "Portable Release v1.0.${{ github.run_number }}"
-        files: out\Portable\*
+        tag: v1.0.${{ github.run_number }}  # Version unique pour chaque run
+        releaseName: "Portable Release v1.0.${{ github.run_number }}"  # Nom de la release
+        files: out\Portable\*  # Les fichiers que tu veux inclure dans la release GitHub
