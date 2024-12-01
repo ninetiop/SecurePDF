@@ -34,7 +34,7 @@ jobs:
 
     - name: Execute unit tests
       run: |
-        msbuild $env:Test_Project_Path /t:Test /p:Configuration=${{ matrix.configuration }}
+            dotnet vstest $env:Test_Project_Path/bin/${{ matrix.configuration }}/UnitTest.dll
 
     # Décoder le certificat PFX à partir des secrets GitHub
     - name: Decode the pfx
