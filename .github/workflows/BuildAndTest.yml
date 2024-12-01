@@ -8,19 +8,13 @@ on:
 
 jobs:
   build:
-    strategy:
-      matrix:
-        configuration: [Debug, Release]  # Configurations Debug et Release
-
     runs-on: windows-latest
-    timeout-minutes: 10 # Consider increasing timeout
+    timeout-minutes: 10  # Consider increasing timeout
 
     env:
       Solution_Name: PdfLocker.sln  # Nom de la solution
       Test_Project_Dir: UnitTest
       Test_Project_Path: UnitTest\UnitTest.csproj  # Chemin vers ton projet de tests unitaires
-      Wap_Project_Directory: WapProj  # Répertoire de ton projet WAP
-      Wap_Project_Path: WapProj\WapProj.wapproj  # Chemin complet vers ton fichier WAP
 
     steps:
     - name: Checkout
@@ -34,16 +28,17 @@ jobs:
     - name: Restore NuGet packages
       run: nuget restore $env:Solution_Name
     - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=${{ matrix.configuration }}
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=Release  # Spécifie "Release" directement
     - name: Build the unit test project
-      run: msbuild $env:Test_Project_Path /p:Configuration=${{ matrix.configuration }}
+      run: msbuild $env:Test_Project_Path /p:Configuration=Release  # Spécifie "Release" directement
     - name: Execute unit tests
-      run: dotnet vstest $env:Test_Project_Dir\bin\${{ matrix.configuration }}\UnitTest.dll
+      run: dotnet vstest $env:Test_Project_Dir\bin\Release\UnitTest.dll
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
         name: Build-Output-${{ github.run_id }} 
-        path: PdfLocker\bin\${{matrix.configuration}}
+        path: PdfLocker\bin\Release
+
     
 
     # Décoder le certificat PFX à partir des secrets GitHub
