@@ -60,9 +60,10 @@ jobs:
     - name: Prepare portable build
       run: |
         mkdir out\Portable
-        copy build_output\*.exe out\Portable /y
-        copy build_output\*.config out\Portable /y
-        copy build_output\*.pdb out\Portable /y
+        Copy-Item -Path build_output\*.exe -Destination out\Portable -Force
+        Copy-Item -Path build_output\*.config -Destination out\Portable -Force
+        Copy-Item -Path build_output\*.pdb -Destination out\Portable -Force
+
 
     - name: List files in portable directory
       run: dir out\Portable
