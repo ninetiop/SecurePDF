@@ -36,7 +36,7 @@ jobs:
     - name: Upload artifacts
       uses: actions/upload-artifact@v4
       with:
-        name: Build-Output-V1
+        name: Build-Output-${{ github.run_id }}  # Utilisation d'un identifiant unique pour chaque exécution
         path: PdfLocker\bin\Release
 
     
