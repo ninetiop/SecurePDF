@@ -18,7 +18,7 @@ jobs:
     - name: Download build artifact
       uses: actions/download-artifact@v4
       with:
-        name: Build-Output-${{ github.event.workflow_run.id }}  # Utilisation du run_id du workflow Build and Test
+        name: Build-Output-${{ github.event.workflow_run.run_id }}
         path: build_output  # Le dossier où tu veux télécharger l'artefact
 
     - name: List downloaded artifacts
