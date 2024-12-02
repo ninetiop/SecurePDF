@@ -7,19 +7,19 @@
   IgnorableNamespaces="uap rescap">
 
   <Identity
-    Name="6b9d9808-600e-40c3-ae7f-73a2e57a7e3c"
+    Name="3d5bf0d3-df52-4c05-9c4b-f0bf9eb432e5"
     Publisher="CN=SecurePDF"
     Version="1.0.0.0" />
 
   <Properties>
-    <DisplayName>WapProj</DisplayName>
-    <PublisherDisplayName>ninetiop</PublisherDisplayName>
+    <DisplayName>PdfLocker</DisplayName>
+    <PublisherDisplayName>poite</PublisherDisplayName>
     <Logo>Images\StoreLogo.png</Logo>
   </Properties>
 
   <Dependencies>
-    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.19041.0" />
-    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.19041.0" />
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.14393.0" />
   </Dependencies>
 
   <Resources>
@@ -28,8 +28,8 @@
 
   <Applications>
     <Application Id="App"
-      Executable="PdfLocker.exe"
-      EntryPoint="Windows.FullTrustApplication">
+      Executable="$targetnametoken$.exe"
+      EntryPoint="PdfLocker">
       <uap:VisualElements
         DisplayName="WapProj"
         Description="WapProj"

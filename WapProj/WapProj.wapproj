@@ -50,12 +50,20 @@
   </PropertyGroup>
   <Import Project="$(WapProjPath)\Microsoft.DesktopBridge.props" />
   <PropertyGroup>
-    <ProjectGuid>9d2a872a-8bff-4e9f-9dd5-a6fd31ce1756</ProjectGuid>
+    <ProjectGuid>0717a47f-23df-45b4-90fe-2b6634c39ea9</ProjectGuid>
     <TargetPlatformVersion>10.0.26100.0</TargetPlatformVersion>
-    <TargetPlatformMinVersion>10.0.14393.0</TargetPlatformMinVersion>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <DefaultLanguage>en-US</DefaultLanguage>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <NoWarn>$(NoWarn);NU1702</NoWarn>
+    <EntryPointProjectUniqueName>..\PdfLocker\PdfLocker.csproj</EntryPointProjectUniqueName>
+    <PackageCertificateThumbprint>8EB060DE33406C3310D1B3FE5E950B2337198549</PackageCertificateThumbprint>
+    <GenerateAppInstallerFile>False</GenerateAppInstallerFile>
+    <AppxPackageSigningTimestampDigestAlgorithm>SHA256</AppxPackageSigningTimestampDigestAlgorithm>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <GenerateTestArtifacts>True</GenerateTestArtifacts>
+    <AppxBundlePlatforms>neutral</AppxBundlePlatforms>
+    <HoursBetweenUpdateChecks>0</HoursBetweenUpdateChecks>
   </PropertyGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -76,8 +84,7 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.26100.1742" PrivateAssets="all" />
   </ItemGroup>
-  <PropertyGroup>
-    <PackageCertificatePassword>$(PfxPassword)</PackageCertificatePassword>
-    <PackageCertificateThumbprint>8EB060DE33406C3310D1B3FE5E950B2337198549</PackageCertificateThumbprint>
-  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PdfLocker\PdfLocker.csproj" />
+  </ItemGroup>
 </Project>
