@@ -64,10 +64,10 @@ jobs:
       run: |
         mkdir out
         # Copy .exe, .dll, .config, and .pdb files to the portable directory
-        xcopy build_output\PdfLocker\bin\Release\*.exe out\Portable /s /i
-        xcopy build_output\PdfLocker\bin\Release\*.dll out\Portable /s /i
-        xcopy build_output\PdfLocker\bin\Release\*.config out\Portable /s /i  # Include .config if needed
-        xcopy build_output\PdfLocker\bin\Release\*.pdb out\Portable /s /i  # Include .pdb if needed
+        xcopy build_output\*.exe out\Portable /s /i
+        xcopy build_output\*.dll out\Portable /s /i
+        xcopy build_output\*.config out\Portable /s /i  # Include .config if needed
+        xcopy build_output\*.pdb out\Portable /s /i  # Include .pdb if needed
 
     - name: Upload portable build as artifact
       uses: actions/upload-artifact@v4
