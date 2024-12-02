@@ -9,18 +9,18 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    timeout-minutes: 10  # Timeout for the job
+    timeout-minutes: 10
 
     env:
-      Solution_Name: PdfLocker.sln  # Solution name
+      Solution_Name: PdfLocker.sln
       Test_Project_Dir: UnitTest
-      Test_Project_Path: UnitTest\UnitTest.csproj  # Path to the unit test project
+      Test_Project_Path: UnitTest\UnitTest.csproj
 
     steps:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0  # Fetch the full Git history
+        fetch-depth: 0
 
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
@@ -29,10 +29,10 @@ jobs:
       run: nuget restore $env:Solution_Name
 
     - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=Release  # Specify "Release"
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=Release
 
     - name: Build the unit test project
-      run: msbuild $env:Test_Project_Path /p:Configuration=Release  # Specify "Release"
+      run: msbuild $env:Test_Project_Path /p:Configuration=Release
 
     - name: Execute unit tests
       run: dotnet vstest $env:Test_Project_Dir\bin\Release\UnitTest.dll
@@ -40,11 +40,11 @@ jobs:
     - name: Upload build artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Build-Output  # A generic name for the artifact
+        name: Build-Output
         path: PdfLocker\bin\Release
 
   delivery:
-    needs: build  # Run this job only after the "build" job is successful
+    needs: build
     runs-on: windows-latest
 
     steps:
@@ -55,38 +55,29 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: Build-Output
-        path: build_output  # Path where the artifact will be downloaded
-
-    - name: List downloaded artifacts
-      run: dir build_output  # Verify the downloaded files
+        path: build_output
 
     - name: Prepare portable build
       run: |
-        # Clean output directory
-        if (Test-Path -Path "out\Portable") {
-          Remove-Item -Recurse -Force "out\Portable"
-        }
         mkdir out\Portable
-
-        # Copy .exe, .dll, .config, and .pdb files to the portable directory
-        xcopy build_output\*.exe out\Portable /s /i /y
-        xcopy build_output\*.dll out\Portable /s /i /y
-        xcopy build_output\*.config out\Portable /s /i /y
-        xcopy build_output\*.pdb out\Portable /s /i /y
+        copy build_output\*.exe out\Portable /y
+        copy build_output\*.config out\Portable /y
+        copy build_output\*.pdb out\Portable /y
 
     - name: List files in portable directory
       run: dir out\Portable
-    
+
     - name: Upload portable build as artifact
       uses: actions/upload-artifact@v4
       with:
         name: Portable-Build
         path: out\Portable
-    
+
     - name: Create GitHub Release
       uses: ncipollo/release-action@v1
       with:
-        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}  # Use your personal access token
+        token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         tag: v1.0.${{ github.run_number }}
-        releaseName: "Portable Release v1.0.${{ github.run_number }}"
-        files: out\Portable\*
+        name: "Portable Release v1.0.${{ github.run_number }}"
+        artifacts: |
+          out\Portable\PdfLocker.exe
