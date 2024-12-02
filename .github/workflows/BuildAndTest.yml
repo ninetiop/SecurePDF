@@ -1,4 +1,4 @@
-name: Build And Test
+name: Build, Test, and Deliver
 
 on:
   push:
@@ -9,61 +9,72 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    timeout-minutes: 10  # Consider increasing timeout
+    timeout-minutes: 10  # Timeout for the job
 
     env:
-      Solution_Name: PdfLocker.sln  # Nom de la solution
+      Solution_Name: PdfLocker.sln  # Solution name
       Test_Project_Dir: UnitTest
-      Test_Project_Path: UnitTest\UnitTest.csproj  # Chemin vers ton projet de tests unitaires
+      Test_Project_Path: UnitTest\UnitTest.csproj  # Path to the unit test project
 
     steps:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0  # Récupère toute l'historique Git
+        fetch-depth: 0  # Fetch the full Git history
 
     - name: Setup MSBuild.exe
       uses: microsoft/setup-msbuild@v2
 
     - name: Restore NuGet packages
       run: nuget restore $env:Solution_Name
+
     - name: Restore the application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=Release  # Spécifie "Release" directement
+      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=Release  # Specify "Release"
+
     - name: Build the unit test project
-      run: msbuild $env:Test_Project_Path /p:Configuration=Release  # Spécifie "Release" directement
+      run: msbuild $env:Test_Project_Path /p:Configuration=Release  # Specify "Release"
+
     - name: Execute unit tests
       run: dotnet vstest $env:Test_Project_Dir\bin\Release\UnitTest.dll
-    - name: Upload artifacts
+
+    - name: Upload build artifact
       uses: actions/upload-artifact@v4
       with:
-        name: Build-Output-${{ github.run_id }}  # Utilisation d'un identifiant unique pour chaque exécution
+        name: Build-Output  # A generic name for the artifact
         path: PdfLocker\bin\Release
 
-    
+  delivery:
+    needs: build  # Run this job only after the "build" job is successful
+    runs-on: windows-latest
 
-    # Décoder le certificat PFX à partir des secrets GitHub
-    #- name: Decode the pfx
-      #run: |
-        #$pfx_cert_byte = [System.Convert]::FromBase64String("${{ secrets.Base64_Encoded_Pfx }}")
-        #$certificatePath = Join-Path -Path $env:Wap_Project_Directory -ChildPath GitHubActionsWorkflow.pfx
-        #[IO.File]::WriteAllBytes("$certificatePath", $pfx_cert_byte)
-   
-    # Créer le package MSIX en utilisant le projet WAP
-    #- name: Create the app package
-      #run: msbuild $env:Wap_Project_Path /p:Configuration=${{ matrix.configuration }} /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode /p:AppxBundle=$env:Appx_Bundle /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx /p:PackageCertificatePassword=${{ secrets.PFX_PASSWORD }}
-      #env:
-        #Appx_Bundle: Always
-        #Appx_Bundle_Platforms: x86|x64
-        #Appx_Package_Build_Mode: StoreUpload
-        #Configuration: ${{ matrix.configuration }}
+    steps:
+    - name: Checkout the code
+      uses: actions/checkout@v4
 
-    # Supprimer le fichier PFX après l'utilisation
-    #- name: Remove the pfx
-      #run: Remove-Item -path $env:Wap_Project_Directory\GitHubActionsWorkflow.pfx
+    - name: Download build artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: Build-Output
+        path: build_output  # Path where the artifact will be downloaded
 
-    # Télécharger les artefacts de build
-    #- name: Upload build artifacts
-      #uses: actions/upload-artifact@v3
-      #with:
-        #name: MSIX Package
-        #path: ${{ env.Wap_Project_Directory }}\AppPackages
+    - name: List downloaded artifacts
+      run: dir build_output  # Verify the downloaded files
+
+    - name: Prepare portable build
+      run: |
+        mkdir out
+        xcopy build_output\* out\Portable /s /i  # Copy files to a portable directory
+
+    - name: Upload portable build as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: Portable-Build
+        path: out\Portable
+
+    - name: Create GitHub Release
+      uses: ncipollo/release-action@v1
+      with:
+        token: ${{ secrets.GITHUB_TOKEN }}
+        tag: v1.0.${{ github.run_number }}
+        releaseName: "Portable Release v1.0.${{ github.run_number }}"
+        files: out\Portable\*
