@@ -18,11 +18,11 @@ jobs:
     - name: Download build artifact
       uses: actions/download-artifact@v4
       with:
-        name: Build-Output-V1
+        name: Build-Output-${{ github.event.workflow_run.run_id }}  # Utilisation du run_id pour le téléchargement
         path: build_output  # Le dossier où tu veux télécharger l'artefact
 
     - name: List downloaded artifacts
-      run: dir build_output  # Afficher le contenu du dossier build_output pour vérifier les fichiers téléchargés
+      run: dir build_output  # Affiche le contenu du dossier build_output pour vérifier les fichiers téléchargés
     
     - name: Prepare portable build
       run: |
