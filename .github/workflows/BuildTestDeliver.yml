@@ -62,19 +62,25 @@ jobs:
 
     - name: Prepare portable build
       run: |
-        mkdir out
-        # Copy .exe, .dll, .config, and .pdb files to the portable directory
-        xcopy build_output\*.exe out\Portable /s /i
-        xcopy build_output\*.dll out\Portable /s /i
-        xcopy build_output\*.config out\Portable /s /i  # Include .config if needed
-        xcopy build_output\*.pdb out\Portable /s /i  # Include .pdb if needed
+        # Clean output directory
+        if exist out\Portable rmdir /s /q out\Portable
+        mkdir out\Portable
 
+        # Copy .exe, .dll, .config, and .pdb files to the portable directory
+        xcopy build_output\*.exe out\Portable /s /i /y
+        xcopy build_output\*.dll out\Portable /s /i /y
+        xcopy build_output\*.config out\Portable /s /i /y
+        xcopy build_output\*.pdb out\Portable /s /i /y
+
+    - name: List files in portable directory
+      run: dir out\Portable
+    
     - name: Upload portable build as artifact
       uses: actions/upload-artifact@v4
       with:
         name: Portable-Build
         path: out\Portable
-
+    
     - name: Create GitHub Release
       uses: ncipollo/release-action@v1
       with:
