@@ -63,7 +63,9 @@ jobs:
     - name: Prepare portable build
       run: |
         # Clean output directory
-        if exist out\Portable rmdir /s /q out\Portable
+        if (Test-Path -Path "out\Portable") {
+          Remove-Item -Recurse -Force "out\Portable"
+        }
         mkdir out\Portable
 
         # Copy .exe, .dll, .config, and .pdb files to the portable directory
