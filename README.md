@@ -23,7 +23,7 @@ We take security seriously, and the entire codebase is visible and open for revi
 
 
 ## Demo
-![App Demo](img/poc.gif)
+![App Demo](https://github.com/ninetiop/SecurePDF/raw/master/img/PoC.gif)
 
 ## Technologies Used
 Here are the main technologies used in this project:
