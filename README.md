@@ -47,7 +47,7 @@ Here are the main technologies used in this project:
 ### Installation
 1. Navigate to [Releases Page](https://github.com/ninetiop/SecurePDF/releases/).
 2. Download the `.exe` file.
-3. Run the `PdfLocker.exe` file.
+3. Run the `SecurePDF.exe` file.
 
 or 
 
