@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
@@ -11,11 +12,22 @@ namespace PdfLocker
             InitializeComponent();
         }
 
+        private void ShowCopyToolTip(Control control, string message)
+        {
+            // Calculate the position to display the tooltip
+            int toolTipX = control.Width / 2; // Center horizontally relative to the control
+            int toolTipY = -20;               // Offset above the control
+
+            // Show the tooltip above the control
+            this.toolTip1.Show(message, control, toolTipX, toolTipY, 2000); // Show for 2 seconds
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (LockPasswordTextBox.Text != "")
             {
                 Clipboard.SetText(LockPasswordTextBox.Text);
+                ShowCopyToolTip(this.buttonCopy, "Copied to clipboard!");
             }
         }
 
@@ -339,6 +351,12 @@ namespace PdfLocker
                 checkBoxNumberPassword.Checked,
                 checkBoxSymbolPassword.Checked
             );
+        }
+
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm aboutForm = new AboutForm();
+            aboutForm.ShowDialog();
         }
     }
 }

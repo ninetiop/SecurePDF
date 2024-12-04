@@ -1,4 +1,4 @@
-# PDF Lock/Unlock Tool
+# PDFSecure 
 
 A Windows application to securely lock and unlock PDF files with a password. 🚀
 
@@ -6,20 +6,24 @@ A Windows application to securely lock and unlock PDF files with a password. �
 - **Lock a PDF**: Add a password to restrict access to your PDF.
 - **Unlock a PDF**: Remove a password for unrestricted access.
 - **Password Generator**: Generate strong passwords for your files.
+- **AES-256 Encryption**: Uses **industry-standard AES-256 encryption** to secure your PDF files with robust protection.
 - **User-friendly Interface**: Modern and intuitive design for effortless use.
+- **Privacy Respect**: All password processing happens locally. **No passwords are stored**, ensuring complete confidentiality.
+- **Standalone Desktop Application**: Works entirely on your computer, with no internet connection required.
+
 
 
 ## Security Warning ⚠️
 
-Please note that the executable (`PdfLocker.exe.exe`) and the file might be flagged as untrusted or unsafe by certain antivirus software or security systems. This is because the application is not signed with a recognized self-signed certificate.
+Please note that the executable (`SecurePDF.exe`) and the file might be flagged as untrusted or unsafe by certain antivirus software or security systems. This is because the application is not signed with a recognized self-signed certificate.
 
 However, the **full source code** is publicly available in this repository, and the application can be **compiled from source** to ensure its safety. If you're concerned about security, we recommend that you build the application yourself from the source code.
 
 We take security seriously, and the entire codebase is visible and open for review. If you have any questions or concerns, feel free to reach out or submit an issue!
 
 
-## Screenshots
-![App Screenshot](screenshot.png) <!-- Add a real screenshot here -->
+## Demo
+![App Demo](img/poc.gif)
 
 ## Technologies Used
 Here are the main technologies used in this project:
