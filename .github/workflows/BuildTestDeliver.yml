@@ -81,4 +81,4 @@ jobs:
         tag: v1.0.${{ github.run_number }}
         name: "Portable Release v1.0.${{ github.run_number }}"
         artifacts: |
-          out\Portable\PdfLocker.exe
+          out\Portable\SecurePDF.exe
