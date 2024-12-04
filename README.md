@@ -1,4 +1,4 @@
-# PDFSecure 
+# SecurePDF
 
 A Windows application to securely lock and unlock PDF files with a password. 🚀
 
