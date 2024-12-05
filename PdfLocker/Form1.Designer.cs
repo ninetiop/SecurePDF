@@ -46,17 +46,10 @@ namespace PdfLocker
             this.checkBoxLowercasePassword = new System.Windows.Forms.CheckBox();
             this.checkBoxUppercasePassword = new System.Windows.Forms.CheckBox();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.LockVisiblePasswordButton = new System.Windows.Forms.Button();
-            this.LockInvisiblePasswordButton = new System.Windows.Forms.Button();
-            this.buttonIconLock = new System.Windows.Forms.Button();
             this.LockOutputFileLabel = new System.Windows.Forms.Label();
-            this.LockProcessButton = new System.Windows.Forms.Button();
             this.LockFileInputLabel = new System.Windows.Forms.Label();
-            this.buttonCopy = new System.Windows.Forms.Button();
-            this.LockOutputFileButton = new System.Windows.Forms.Button();
             this.LockInputFileTextBox = new System.Windows.Forms.TextBox();
             this.LockOutputFileTextBox = new System.Windows.Forms.TextBox();
-            this.LockInputFileButton = new System.Windows.Forms.Button();
             this.LockPasswordLabel = new System.Windows.Forms.Label();
             this.LockPasswordTextBox = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -68,20 +61,27 @@ namespace PdfLocker
             this.UnlockPasswordTextBox = new System.Windows.Forms.TextBox();
             this.UnlockInputFileTextBox = new System.Windows.Forms.TextBox();
             this.UnlockInputFileLabel = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.buttonDarkMode = new System.Windows.Forms.Button();
+            this.buttonLightMode = new System.Windows.Forms.Button();
+            this.LockVisiblePasswordButton = new System.Windows.Forms.Button();
+            this.LockInvisiblePasswordButton = new System.Windows.Forms.Button();
+            this.buttonIconLock = new System.Windows.Forms.Button();
+            this.LockProcessButton = new System.Windows.Forms.Button();
+            this.buttonCopy = new System.Windows.Forms.Button();
+            this.LockOutputFileButton = new System.Windows.Forms.Button();
+            this.LockInputFileButton = new System.Windows.Forms.Button();
             this.UnlockInvisiblePasswordButton = new System.Windows.Forms.Button();
             this.UnlockVisiblePasswordButton = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.UnlockProcessButton = new System.Windows.Forms.Button();
             this.UnLockOutputFileButton = new System.Windows.Forms.Button();
             this.UnLockInputFileButton = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.lockPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unlockPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.buttonDarkMode = new System.Windows.Forms.Button();
-            this.buttonLightMode = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -266,50 +266,6 @@ namespace PdfLocker
             this.trackBar1.Value = 12;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
-            // LockVisiblePasswordButton
-            // 
-            this.LockVisiblePasswordButton.FlatAppearance.BorderSize = 0;
-            this.LockVisiblePasswordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LockVisiblePasswordButton.Image = global::PdfLocker.Properties.Resources.show1;
-            this.LockVisiblePasswordButton.Location = new System.Drawing.Point(476, 379);
-            this.LockVisiblePasswordButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.LockVisiblePasswordButton.Name = "LockVisiblePasswordButton";
-            this.LockVisiblePasswordButton.Size = new System.Drawing.Size(45, 33);
-            this.LockVisiblePasswordButton.TabIndex = 20;
-            this.LockVisiblePasswordButton.UseVisualStyleBackColor = true;
-            this.LockVisiblePasswordButton.Click += new System.EventHandler(this.buttonVisiblePassword_Click);
-            // 
-            // LockInvisiblePasswordButton
-            // 
-            this.LockInvisiblePasswordButton.BackColor = System.Drawing.Color.White;
-            this.LockInvisiblePasswordButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.LockInvisiblePasswordButton.FlatAppearance.BorderSize = 0;
-            this.LockInvisiblePasswordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LockInvisiblePasswordButton.ForeColor = System.Drawing.Color.White;
-            this.LockInvisiblePasswordButton.Image = global::PdfLocker.Properties.Resources.invisible;
-            this.LockInvisiblePasswordButton.Location = new System.Drawing.Point(476, 378);
-            this.LockInvisiblePasswordButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.LockInvisiblePasswordButton.Name = "LockInvisiblePasswordButton";
-            this.LockInvisiblePasswordButton.Size = new System.Drawing.Size(45, 33);
-            this.LockInvisiblePasswordButton.TabIndex = 19;
-            this.LockInvisiblePasswordButton.UseVisualStyleBackColor = false;
-            this.LockInvisiblePasswordButton.Visible = false;
-            this.LockInvisiblePasswordButton.Click += new System.EventHandler(this.buttonInvisiblePassword_Click);
-            // 
-            // buttonIconLock
-            // 
-            this.buttonIconLock.FlatAppearance.BorderSize = 0;
-            this.buttonIconLock.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.buttonIconLock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.buttonIconLock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonIconLock.Image = global::PdfLocker.Properties.Resources.image;
-            this.buttonIconLock.Location = new System.Drawing.Point(501, 51);
-            this.buttonIconLock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonIconLock.Name = "buttonIconLock";
-            this.buttonIconLock.Size = new System.Drawing.Size(157, 138);
-            this.buttonIconLock.TabIndex = 18;
-            this.buttonIconLock.UseVisualStyleBackColor = true;
-            // 
             // LockOutputFileLabel
             // 
             this.LockOutputFileLabel.Font = new System.Drawing.Font("Consolas", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
@@ -322,20 +278,6 @@ namespace PdfLocker
             this.LockOutputFileLabel.Text = "Output PDF";
             this.LockOutputFileLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // LockProcessButton
-            // 
-            this.LockProcessButton.BackColor = System.Drawing.Color.GhostWhite;
-            this.LockProcessButton.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
-            this.LockProcessButton.ForeColor = System.Drawing.Color.White;
-            this.LockProcessButton.Image = global::PdfLocker.Properties.Resources.process1;
-            this.LockProcessButton.Location = new System.Drawing.Point(338, 704);
-            this.LockProcessButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.LockProcessButton.Name = "LockProcessButton";
-            this.LockProcessButton.Size = new System.Drawing.Size(449, 118);
-            this.LockProcessButton.TabIndex = 16;
-            this.LockProcessButton.UseVisualStyleBackColor = false;
-            this.LockProcessButton.Click += new System.EventHandler(this.LockProcessButton_Click);
-            // 
             // LockFileInputLabel
             // 
             this.LockFileInputLabel.Font = new System.Drawing.Font("Consolas", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
@@ -346,37 +288,6 @@ namespace PdfLocker
             this.LockFileInputLabel.TabIndex = 3;
             this.LockFileInputLabel.Text = "Input PDF";
             this.LockFileInputLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // buttonCopy
-            // 
-            this.buttonCopy.FlatAppearance.BorderSize = 0;
-            this.buttonCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCopy.Image = global::PdfLocker.Resource1.copy;
-            this.buttonCopy.Location = new System.Drawing.Point(552, 377);
-            this.buttonCopy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.buttonCopy.Name = "buttonCopy";
-            this.buttonCopy.Size = new System.Drawing.Size(45, 33);
-            this.buttonCopy.TabIndex = 12;
-            this.buttonCopy.UseVisualStyleBackColor = true;
-            this.buttonCopy.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // LockOutputFileButton
-            // 
-            this.LockOutputFileButton.BackColor = System.Drawing.Color.Transparent;
-            this.LockOutputFileButton.FlatAppearance.BorderColor = System.Drawing.Color.Green;
-            this.LockOutputFileButton.FlatAppearance.BorderSize = 0;
-            this.LockOutputFileButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LockOutputFileButton.ForeColor = System.Drawing.Color.White;
-            this.LockOutputFileButton.Image = global::PdfLocker.Properties.Resources.export_pdf;
-            this.LockOutputFileButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.LockOutputFileButton.Location = new System.Drawing.Point(851, 542);
-            this.LockOutputFileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.LockOutputFileButton.Name = "LockOutputFileButton";
-            this.LockOutputFileButton.Size = new System.Drawing.Size(257, 120);
-            this.LockOutputFileButton.TabIndex = 15;
-            this.LockOutputFileButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.LockOutputFileButton.UseVisualStyleBackColor = false;
-            this.LockOutputFileButton.Click += new System.EventHandler(this.LockOutputFileButton_Click);
             // 
             // LockInputFileTextBox
             // 
@@ -398,27 +309,6 @@ namespace PdfLocker
             this.LockOutputFileTextBox.Size = new System.Drawing.Size(449, 34);
             this.LockOutputFileTextBox.TabIndex = 2;
             // 
-            // LockInputFileButton
-            // 
-            this.LockInputFileButton.AllowDrop = true;
-            this.LockInputFileButton.BackColor = System.Drawing.Color.Transparent;
-            this.LockInputFileButton.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
-            this.LockInputFileButton.FlatAppearance.BorderSize = 0;
-            this.LockInputFileButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Bold);
-            this.LockInputFileButton.ForeColor = System.Drawing.Color.White;
-            this.LockInputFileButton.Image = global::PdfLocker.Properties.Resources.icons8_upload_64;
-            this.LockInputFileButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.LockInputFileButton.Location = new System.Drawing.Point(851, 222);
-            this.LockInputFileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.LockInputFileButton.Name = "LockInputFileButton";
-            this.LockInputFileButton.Size = new System.Drawing.Size(257, 120);
-            this.LockInputFileButton.TabIndex = 13;
-            this.LockInputFileButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.LockInputFileButton.UseVisualStyleBackColor = false;
-            this.LockInputFileButton.Click += new System.EventHandler(this.LockInputFileButton_Click);
-            this.LockInputFileButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.LockInputFileButton_DragDrop);
-            this.LockInputFileButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.LockInputFileButton_DragEnter);
-            // 
             // LockPasswordLabel
             // 
             this.LockPasswordLabel.Font = new System.Drawing.Font("Consolas", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
@@ -437,7 +327,7 @@ namespace PdfLocker
             this.LockPasswordTextBox.Location = new System.Drawing.Point(338, 417);
             this.LockPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LockPasswordTextBox.Name = "LockPasswordTextBox";
-            this.LockPasswordTextBox.PasswordChar = '*';
+            this.LockPasswordTextBox.PasswordChar = '\u25CF';
             this.LockPasswordTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.LockPasswordTextBox.Size = new System.Drawing.Size(449, 34);
             this.LockPasswordTextBox.TabIndex = 1;
@@ -465,7 +355,7 @@ namespace PdfLocker
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPage2.Size = new System.Drawing.Size(1160, 856);
+            this.tabPage2.Size = new System.Drawing.Size(1177, 851);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "PDF Unlocker";
             // 
@@ -531,6 +421,7 @@ namespace PdfLocker
             this.UnlockPasswordTextBox.Name = "UnlockPasswordTextBox";
             this.UnlockPasswordTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.UnlockPasswordTextBox.Size = new System.Drawing.Size(449, 34);
+            this.UnlockPasswordTextBox.PasswordChar = '\u25CF';
             this.UnlockPasswordTextBox.TabIndex = 17;
             // 
             // UnlockInputFileTextBox
@@ -554,6 +445,164 @@ namespace PdfLocker
             this.UnlockInputFileLabel.Text = "Input PDF";
             this.UnlockInputFileLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.Color.White;
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lockPDFToolStripMenuItem,
+            this.unlockPDFToolStripMenuItem,
+            this.aboutToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1168, 28);
+            this.menuStrip1.TabIndex = 14;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.IsBalloon = true;
+            // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // buttonDarkMode
+            // 
+            this.buttonDarkMode.FlatAppearance.BorderSize = 0;
+            this.buttonDarkMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDarkMode.Image = global::PdfLocker.Properties.Resources.moon16;
+            this.buttonDarkMode.Location = new System.Drawing.Point(932, 0);
+            this.buttonDarkMode.Name = "buttonDarkMode";
+            this.buttonDarkMode.Size = new System.Drawing.Size(80, 37);
+            this.buttonDarkMode.TabIndex = 34;
+            this.buttonDarkMode.UseVisualStyleBackColor = true;
+            this.buttonDarkMode.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // buttonLightMode
+            // 
+            this.buttonLightMode.FlatAppearance.BorderSize = 0;
+            this.buttonLightMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLightMode.Image = global::PdfLocker.Properties.Resources.sunny16;
+            this.buttonLightMode.Location = new System.Drawing.Point(846, 0);
+            this.buttonLightMode.Name = "buttonLightMode";
+            this.buttonLightMode.Size = new System.Drawing.Size(80, 37);
+            this.buttonLightMode.TabIndex = 34;
+            this.buttonLightMode.UseVisualStyleBackColor = true;
+            this.buttonLightMode.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // LockVisiblePasswordButton
+            // 
+            this.LockVisiblePasswordButton.FlatAppearance.BorderSize = 0;
+            this.LockVisiblePasswordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LockVisiblePasswordButton.Image = global::PdfLocker.Properties.Resources.visibility32;
+            this.LockVisiblePasswordButton.Location = new System.Drawing.Point(476, 378);
+            this.LockVisiblePasswordButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LockVisiblePasswordButton.Name = "LockVisiblePasswordButton";
+            this.LockVisiblePasswordButton.Size = new System.Drawing.Size(45, 33);
+            this.LockVisiblePasswordButton.TabIndex = 20;
+            this.LockVisiblePasswordButton.UseVisualStyleBackColor = true;
+            this.LockVisiblePasswordButton.Click += new System.EventHandler(this.buttonVisiblePassword_Click);
+            // 
+            // LockInvisiblePasswordButton
+            // 
+            this.LockInvisiblePasswordButton.BackColor = System.Drawing.Color.White;
+            this.LockInvisiblePasswordButton.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.LockInvisiblePasswordButton.FlatAppearance.BorderSize = 0;
+            this.LockInvisiblePasswordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LockInvisiblePasswordButton.ForeColor = System.Drawing.Color.White;
+            this.LockInvisiblePasswordButton.Image = global::PdfLocker.Properties.Resources.invisible24;
+            this.LockInvisiblePasswordButton.Location = new System.Drawing.Point(476, 378);
+            this.LockInvisiblePasswordButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LockInvisiblePasswordButton.Name = "LockInvisiblePasswordButton";
+            this.LockInvisiblePasswordButton.Size = new System.Drawing.Size(45, 33);
+            this.LockInvisiblePasswordButton.TabIndex = 19;
+            this.LockInvisiblePasswordButton.UseVisualStyleBackColor = false;
+            this.LockInvisiblePasswordButton.Visible = false;
+            this.LockInvisiblePasswordButton.Click += new System.EventHandler(this.buttonInvisiblePassword_Click);
+            // 
+            // buttonIconLock
+            // 
+            this.buttonIconLock.FlatAppearance.BorderSize = 0;
+            this.buttonIconLock.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.buttonIconLock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.buttonIconLock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonIconLock.Image = global::PdfLocker.Properties.Resources.image;
+            this.buttonIconLock.Location = new System.Drawing.Point(501, 51);
+            this.buttonIconLock.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonIconLock.Name = "buttonIconLock";
+            this.buttonIconLock.Size = new System.Drawing.Size(157, 138);
+            this.buttonIconLock.TabIndex = 18;
+            this.buttonIconLock.UseVisualStyleBackColor = true;
+            // 
+            // LockProcessButton
+            // 
+            this.LockProcessButton.BackColor = System.Drawing.Color.GhostWhite;
+            this.LockProcessButton.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Bold);
+            this.LockProcessButton.ForeColor = System.Drawing.Color.White;
+            this.LockProcessButton.Image = global::PdfLocker.Properties.Resources.process1;
+            this.LockProcessButton.Location = new System.Drawing.Point(338, 704);
+            this.LockProcessButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LockProcessButton.Name = "LockProcessButton";
+            this.LockProcessButton.Size = new System.Drawing.Size(449, 118);
+            this.LockProcessButton.TabIndex = 16;
+            this.LockProcessButton.UseVisualStyleBackColor = false;
+            this.LockProcessButton.Click += new System.EventHandler(this.LockProcessButton_Click);
+            // 
+            // buttonCopy
+            // 
+            this.buttonCopy.FlatAppearance.BorderSize = 0;
+            this.buttonCopy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCopy.Image = global::PdfLocker.Resource1.clipboard1;
+            this.buttonCopy.Location = new System.Drawing.Point(543, 370);
+            this.buttonCopy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.buttonCopy.Name = "buttonCopy";
+            this.buttonCopy.Size = new System.Drawing.Size(45, 43);
+            this.buttonCopy.TabIndex = 12;
+            this.buttonCopy.UseVisualStyleBackColor = true;
+            this.buttonCopy.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // LockOutputFileButton
+            // 
+            this.LockOutputFileButton.BackColor = System.Drawing.Color.Transparent;
+            this.LockOutputFileButton.FlatAppearance.BorderColor = System.Drawing.Color.Green;
+            this.LockOutputFileButton.FlatAppearance.BorderSize = 0;
+            this.LockOutputFileButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LockOutputFileButton.ForeColor = System.Drawing.Color.White;
+            this.LockOutputFileButton.Image = global::PdfLocker.Properties.Resources.export_pdf;
+            this.LockOutputFileButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LockOutputFileButton.Location = new System.Drawing.Point(851, 542);
+            this.LockOutputFileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LockOutputFileButton.Name = "LockOutputFileButton";
+            this.LockOutputFileButton.Size = new System.Drawing.Size(257, 120);
+            this.LockOutputFileButton.TabIndex = 15;
+            this.LockOutputFileButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LockOutputFileButton.UseVisualStyleBackColor = false;
+            this.LockOutputFileButton.Click += new System.EventHandler(this.LockOutputFileButton_Click);
+            // 
+            // LockInputFileButton
+            // 
+            this.LockInputFileButton.AllowDrop = true;
+            this.LockInputFileButton.BackColor = System.Drawing.Color.Transparent;
+            this.LockInputFileButton.FlatAppearance.BorderColor = System.Drawing.Color.DodgerBlue;
+            this.LockInputFileButton.FlatAppearance.BorderSize = 0;
+            this.LockInputFileButton.Font = new System.Drawing.Font("Segoe UI Emoji", 12F, System.Drawing.FontStyle.Bold);
+            this.LockInputFileButton.ForeColor = System.Drawing.Color.White;
+            this.LockInputFileButton.Image = global::PdfLocker.Properties.Resources.icons8_upload_64;
+            this.LockInputFileButton.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LockInputFileButton.Location = new System.Drawing.Point(851, 222);
+            this.LockInputFileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.LockInputFileButton.Name = "LockInputFileButton";
+            this.LockInputFileButton.Size = new System.Drawing.Size(257, 120);
+            this.LockInputFileButton.TabIndex = 13;
+            this.LockInputFileButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.LockInputFileButton.UseVisualStyleBackColor = false;
+            this.LockInputFileButton.Click += new System.EventHandler(this.LockInputFileButton_Click);
+            this.LockInputFileButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.LockInputFileButton_DragDrop);
+            this.LockInputFileButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.LockInputFileButton_DragEnter);
+            // 
             // UnlockInvisiblePasswordButton
             // 
             this.UnlockInvisiblePasswordButton.BackColor = System.Drawing.Color.White;
@@ -561,8 +610,8 @@ namespace PdfLocker
             this.UnlockInvisiblePasswordButton.FlatAppearance.BorderSize = 0;
             this.UnlockInvisiblePasswordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UnlockInvisiblePasswordButton.ForeColor = System.Drawing.Color.White;
-            this.UnlockInvisiblePasswordButton.Image = global::PdfLocker.Properties.Resources.invisible;
-            this.UnlockInvisiblePasswordButton.Location = new System.Drawing.Point(476, 379);
+            this.UnlockInvisiblePasswordButton.Image = global::PdfLocker.Properties.Resources.invisible32;
+            this.UnlockInvisiblePasswordButton.Location = new System.Drawing.Point(476, 378);
             this.UnlockInvisiblePasswordButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UnlockInvisiblePasswordButton.Name = "UnlockInvisiblePasswordButton";
             this.UnlockInvisiblePasswordButton.Size = new System.Drawing.Size(45, 33);
@@ -575,8 +624,8 @@ namespace PdfLocker
             // 
             this.UnlockVisiblePasswordButton.FlatAppearance.BorderSize = 0;
             this.UnlockVisiblePasswordButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UnlockVisiblePasswordButton.Image = global::PdfLocker.Properties.Resources.show1;
-            this.UnlockVisiblePasswordButton.Location = new System.Drawing.Point(476, 379);
+            this.UnlockVisiblePasswordButton.Image = global::PdfLocker.Properties.Resources.visibility321;
+            this.UnlockVisiblePasswordButton.Location = new System.Drawing.Point(476, 378);
             this.UnlockVisiblePasswordButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UnlockVisiblePasswordButton.Name = "UnlockVisiblePasswordButton";
             this.UnlockVisiblePasswordButton.Size = new System.Drawing.Size(45, 33);
@@ -652,21 +701,6 @@ namespace PdfLocker
             this.UnLockInputFileButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.UnlockInputFileButton_DragDrop);
             this.UnLockInputFileButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.UnlockInputFileButton_DragEnter);
             // 
-            // menuStrip1
-            // 
-            this.menuStrip1.BackColor = System.Drawing.Color.White;
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lockPDFToolStripMenuItem,
-            this.unlockPDFToolStripMenuItem,
-            this.aboutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(5, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1168, 28);
-            this.menuStrip1.TabIndex = 14;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
             // lockPDFToolStripMenuItem
             // 
             this.lockPDFToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -694,39 +728,6 @@ namespace PdfLocker
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(84, 24);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
-            // 
-            // toolTip1
-            // 
-            this.toolTip1.IsBalloon = true;
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
-            // 
-            // buttonDarkMode
-            // 
-            this.buttonDarkMode.FlatAppearance.BorderSize = 0;
-            this.buttonDarkMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDarkMode.Image = global::PdfLocker.Properties.Resources.moon16;
-            this.buttonDarkMode.Location = new System.Drawing.Point(932, 0);
-            this.buttonDarkMode.Name = "buttonDarkMode";
-            this.buttonDarkMode.Size = new System.Drawing.Size(80, 37);
-            this.buttonDarkMode.TabIndex = 34;
-            this.buttonDarkMode.UseVisualStyleBackColor = true;
-            this.buttonDarkMode.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // buttonLightMode
-            // 
-            this.buttonLightMode.FlatAppearance.BorderSize = 0;
-            this.buttonLightMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonLightMode.Image = global::PdfLocker.Properties.Resources.sunny16;
-            this.buttonLightMode.Location = new System.Drawing.Point(846, 0);
-            this.buttonLightMode.Name = "buttonLightMode";
-            this.buttonLightMode.Size = new System.Drawing.Size(80, 37);
-            this.buttonLightMode.TabIndex = 34;
-            this.buttonLightMode.UseVisualStyleBackColor = true;
-            this.buttonLightMode.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 

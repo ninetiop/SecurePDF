@@ -259,6 +259,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppIcon.ico" />
+    <None Include="img\invisible32.png" />
+    <None Include="img\clipboard.png" />
+    <None Include="img\visibility64.png" />
+    <None Include="img\visibility32.png" />
+    <None Include="img\invisible24.png" />
+    <None Include="img\visibility24.png" />
     <None Include="img\sunny16.png" />
     <None Include="img\moon16.png" />
     <None Include="img\moon.png" />
