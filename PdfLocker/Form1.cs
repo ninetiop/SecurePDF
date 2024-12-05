@@ -10,6 +10,14 @@ namespace PdfLocker
         public Form1()
         {
             InitializeComponent();
+            if (ThemeManager.IsDarkTheme)
+            {
+                ThemeManager.ApplyCyberpunkTheme(this, false);
+            }
+            else
+            {
+                ThemeManager.ApplyLightTheme(this);
+            }
         }
 
         private void ShowCopyToolTip(Control control, string message)
@@ -357,6 +365,34 @@ namespace PdfLocker
         {
             AboutForm aboutForm = new AboutForm();
             aboutForm.ShowDialog();
+        }
+
+
+        private void metroToggle1_CheckedChanged_1(object sender, EventArgs e)
+        {
+            var toggle = sender as MetroFramework.Controls.MetroToggle;
+
+            if (toggle != null)
+            {
+                // Mise à jour du texte en fonction de l'état du toggle
+                toggle.Text = toggle.Checked ? "Cyberpunk" : "Light"; // Texte dynamique
+
+                // Applique le thème en fonction de l'état du toggle
+                if (toggle.Checked)
+                    ThemeManager.ApplyCyberpunkTheme(this); // Applique le thème Cyberpunk
+                else
+                    ThemeManager.ApplyLightTheme(this); // Applique le thème Light
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ThemeManager.ApplyLightTheme(this);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            ThemeManager.ApplyCyberpunkTheme(this);
         }
     }
 }

@@ -62,24 +62,26 @@ namespace PdfLocker
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.UnlockInvisiblePasswordButton = new System.Windows.Forms.Button();
-            this.UnlockVisiblePasswordButton = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
             this.UnlockOutputFileLabel = new System.Windows.Forms.Label();
-            this.UnlockProcessButton = new System.Windows.Forms.Button();
-            this.UnLockOutputFileButton = new System.Windows.Forms.Button();
             this.UnlockOutputFileTextBox = new System.Windows.Forms.TextBox();
             this.UnlockPasswordLabel = new System.Windows.Forms.Label();
             this.UnlockPasswordTextBox = new System.Windows.Forms.TextBox();
-            this.UnLockInputFileButton = new System.Windows.Forms.Button();
             this.UnlockInputFileTextBox = new System.Windows.Forms.TextBox();
             this.UnlockInputFileLabel = new System.Windows.Forms.Label();
+            this.UnlockInvisiblePasswordButton = new System.Windows.Forms.Button();
+            this.UnlockVisiblePasswordButton = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.UnlockProcessButton = new System.Windows.Forms.Button();
+            this.UnLockOutputFileButton = new System.Windows.Forms.Button();
+            this.UnLockInputFileButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.lockPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.unlockPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.buttonDarkMode = new System.Windows.Forms.Button();
+            this.buttonLightMode = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -94,12 +96,12 @@ namespace PdfLocker
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             this.tabControl1.ItemSize = new System.Drawing.Size(0, 1);
-            this.tabControl1.Location = new System.Drawing.Point(0, 37);
+            this.tabControl1.Location = new System.Drawing.Point(-10, 42);
             this.tabControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1168, 865);
+            this.tabControl1.Size = new System.Drawing.Size(1185, 860);
             this.tabControl1.TabIndex = 13;
             // 
             // tabPage1
@@ -129,11 +131,11 @@ namespace PdfLocker
             this.tabPage1.Controls.Add(this.LockPasswordTextBox);
             this.tabPage1.ForeColor = System.Drawing.Color.Black;
             this.tabPage1.Location = new System.Drawing.Point(4, 5);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
             this.tabPage1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.tabPage1.Size = new System.Drawing.Size(1160, 856);
+            this.tabPage1.Size = new System.Drawing.Size(1177, 851);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "PDF Locker";
             // 
@@ -141,7 +143,7 @@ namespace PdfLocker
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Italic);
-            this.label7.Location = new System.Drawing.Point(911, 664);
+            this.label7.Location = new System.Drawing.Point(911, 662);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(128, 18);
             this.label7.TabIndex = 33;
@@ -152,7 +154,7 @@ namespace PdfLocker
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Italic);
-            this.label6.Location = new System.Drawing.Point(898, 344);
+            this.label6.Location = new System.Drawing.Point(898, 342);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(176, 18);
             this.label6.TabIndex = 32;
@@ -162,7 +164,7 @@ namespace PdfLocker
             // 
             this.LabelPasswordNumberLength.AutoSize = true;
             this.LabelPasswordNumberLength.Font = new System.Drawing.Font("Consolas", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.LabelPasswordNumberLength.Location = new System.Drawing.Point(1066, 385);
+            this.LabelPasswordNumberLength.Location = new System.Drawing.Point(1066, 383);
             this.LabelPasswordNumberLength.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.LabelPasswordNumberLength.Name = "LabelPasswordNumberLength";
             this.LabelPasswordNumberLength.Size = new System.Drawing.Size(32, 23);
@@ -173,7 +175,7 @@ namespace PdfLocker
             // 
             this.LengthPasswordLabel.AutoSize = true;
             this.LengthPasswordLabel.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Italic);
-            this.LengthPasswordLabel.Location = new System.Drawing.Point(847, 386);
+            this.LengthPasswordLabel.Location = new System.Drawing.Point(847, 384);
             this.LengthPasswordLabel.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.LengthPasswordLabel.Name = "LengthPasswordLabel";
             this.LengthPasswordLabel.Size = new System.Drawing.Size(197, 23);
@@ -187,7 +189,7 @@ namespace PdfLocker
             this.checkBoxSymbolPassword.Checked = true;
             this.checkBoxSymbolPassword.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxSymbolPassword.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Italic);
-            this.checkBoxSymbolPassword.Location = new System.Drawing.Point(1079, 465);
+            this.checkBoxSymbolPassword.Location = new System.Drawing.Point(1079, 463);
             this.checkBoxSymbolPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxSymbolPassword.Name = "checkBoxSymbolPassword";
             this.checkBoxSymbolPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -204,7 +206,7 @@ namespace PdfLocker
             this.checkBoxNumberPassword.Checked = true;
             this.checkBoxNumberPassword.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxNumberPassword.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Italic);
-            this.checkBoxNumberPassword.Location = new System.Drawing.Point(997, 465);
+            this.checkBoxNumberPassword.Location = new System.Drawing.Point(997, 463);
             this.checkBoxNumberPassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxNumberPassword.Name = "checkBoxNumberPassword";
             this.checkBoxNumberPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -222,7 +224,7 @@ namespace PdfLocker
             this.checkBoxLowercasePassword.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxLowercasePassword.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Italic);
             this.checkBoxLowercasePassword.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxLowercasePassword.Location = new System.Drawing.Point(914, 465);
+            this.checkBoxLowercasePassword.Location = new System.Drawing.Point(914, 463);
             this.checkBoxLowercasePassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxLowercasePassword.Name = "checkBoxLowercasePassword";
             this.checkBoxLowercasePassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -239,7 +241,7 @@ namespace PdfLocker
             this.checkBoxUppercasePassword.Checked = true;
             this.checkBoxUppercasePassword.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBoxUppercasePassword.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Italic);
-            this.checkBoxUppercasePassword.Location = new System.Drawing.Point(842, 466);
+            this.checkBoxUppercasePassword.Location = new System.Drawing.Point(842, 464);
             this.checkBoxUppercasePassword.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBoxUppercasePassword.Name = "checkBoxUppercasePassword";
             this.checkBoxUppercasePassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -353,7 +355,7 @@ namespace PdfLocker
             this.buttonCopy.Location = new System.Drawing.Point(552, 377);
             this.buttonCopy.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonCopy.Name = "buttonCopy";
-            this.buttonCopy.Size = new System.Drawing.Size(27, 35);
+            this.buttonCopy.Size = new System.Drawing.Size(45, 33);
             this.buttonCopy.TabIndex = 12;
             this.buttonCopy.UseVisualStyleBackColor = true;
             this.buttonCopy.Click += new System.EventHandler(this.button1_Click);
@@ -445,18 +447,18 @@ namespace PdfLocker
             this.tabPage2.BackColor = System.Drawing.Color.White;
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.UnlockInvisiblePasswordButton);
-            this.tabPage2.Controls.Add(this.UnlockVisiblePasswordButton);
-            this.tabPage2.Controls.Add(this.button8);
             this.tabPage2.Controls.Add(this.UnlockOutputFileLabel);
-            this.tabPage2.Controls.Add(this.UnlockProcessButton);
-            this.tabPage2.Controls.Add(this.UnLockOutputFileButton);
             this.tabPage2.Controls.Add(this.UnlockOutputFileTextBox);
             this.tabPage2.Controls.Add(this.UnlockPasswordLabel);
             this.tabPage2.Controls.Add(this.UnlockPasswordTextBox);
-            this.tabPage2.Controls.Add(this.UnLockInputFileButton);
             this.tabPage2.Controls.Add(this.UnlockInputFileTextBox);
             this.tabPage2.Controls.Add(this.UnlockInputFileLabel);
+            this.tabPage2.Controls.Add(this.UnlockInvisiblePasswordButton);
+            this.tabPage2.Controls.Add(this.UnlockVisiblePasswordButton);
+            this.tabPage2.Controls.Add(this.button8);
+            this.tabPage2.Controls.Add(this.UnlockProcessButton);
+            this.tabPage2.Controls.Add(this.UnLockOutputFileButton);
+            this.tabPage2.Controls.Add(this.UnLockInputFileButton);
             this.tabPage2.ForeColor = System.Drawing.Color.Black;
             this.tabPage2.Location = new System.Drawing.Point(4, 5);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -486,6 +488,71 @@ namespace PdfLocker
             this.label1.Size = new System.Drawing.Size(176, 18);
             this.label1.TabIndex = 28;
             this.label1.Text = "Upload or drag here! ";
+            // 
+            // UnlockOutputFileLabel
+            // 
+            this.UnlockOutputFileLabel.Font = new System.Drawing.Font("Consolas", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.UnlockOutputFileLabel.ForeColor = System.Drawing.Color.Black;
+            this.UnlockOutputFileLabel.Location = new System.Drawing.Point(334, 532);
+            this.UnlockOutputFileLabel.Name = "UnlockOutputFileLabel";
+            this.UnlockOutputFileLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.UnlockOutputFileLabel.Size = new System.Drawing.Size(129, 37);
+            this.UnlockOutputFileLabel.TabIndex = 20;
+            this.UnlockOutputFileLabel.Text = "Output PDF";
+            this.UnlockOutputFileLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // UnlockOutputFileTextBox
+            // 
+            this.UnlockOutputFileTextBox.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12F);
+            this.UnlockOutputFileTextBox.Location = new System.Drawing.Point(338, 583);
+            this.UnlockOutputFileTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.UnlockOutputFileTextBox.Name = "UnlockOutputFileTextBox";
+            this.UnlockOutputFileTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.UnlockOutputFileTextBox.Size = new System.Drawing.Size(449, 34);
+            this.UnlockOutputFileTextBox.TabIndex = 18;
+            // 
+            // UnlockPasswordLabel
+            // 
+            this.UnlockPasswordLabel.Font = new System.Drawing.Font("Consolas", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.UnlockPasswordLabel.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.UnlockPasswordLabel.Location = new System.Drawing.Point(334, 370);
+            this.UnlockPasswordLabel.Name = "UnlockPasswordLabel";
+            this.UnlockPasswordLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.UnlockPasswordLabel.Size = new System.Drawing.Size(129, 37);
+            this.UnlockPasswordLabel.TabIndex = 19;
+            this.UnlockPasswordLabel.Text = "Password";
+            this.UnlockPasswordLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // UnlockPasswordTextBox
+            // 
+            this.UnlockPasswordTextBox.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12F);
+            this.UnlockPasswordTextBox.Location = new System.Drawing.Point(338, 417);
+            this.UnlockPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.UnlockPasswordTextBox.Name = "UnlockPasswordTextBox";
+            this.UnlockPasswordTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.UnlockPasswordTextBox.Size = new System.Drawing.Size(449, 34);
+            this.UnlockPasswordTextBox.TabIndex = 17;
+            // 
+            // UnlockInputFileTextBox
+            // 
+            this.UnlockInputFileTextBox.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12F);
+            this.UnlockInputFileTextBox.Location = new System.Drawing.Point(338, 261);
+            this.UnlockInputFileTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.UnlockInputFileTextBox.Name = "UnlockInputFileTextBox";
+            this.UnlockInputFileTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.UnlockInputFileTextBox.Size = new System.Drawing.Size(425, 34);
+            this.UnlockInputFileTextBox.TabIndex = 5;
+            // 
+            // UnlockInputFileLabel
+            // 
+            this.UnlockInputFileLabel.Font = new System.Drawing.Font("Consolas", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.UnlockInputFileLabel.Location = new System.Drawing.Point(334, 212);
+            this.UnlockInputFileLabel.Name = "UnlockInputFileLabel";
+            this.UnlockInputFileLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.UnlockInputFileLabel.Size = new System.Drawing.Size(129, 37);
+            this.UnlockInputFileLabel.TabIndex = 4;
+            this.UnlockInputFileLabel.Text = "Input PDF";
+            this.UnlockInputFileLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // UnlockInvisiblePasswordButton
             // 
@@ -531,18 +598,6 @@ namespace PdfLocker
             this.button8.TabIndex = 25;
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // UnlockOutputFileLabel
-            // 
-            this.UnlockOutputFileLabel.Font = new System.Drawing.Font("Consolas", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.UnlockOutputFileLabel.ForeColor = System.Drawing.Color.Black;
-            this.UnlockOutputFileLabel.Location = new System.Drawing.Point(334, 532);
-            this.UnlockOutputFileLabel.Name = "UnlockOutputFileLabel";
-            this.UnlockOutputFileLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.UnlockOutputFileLabel.Size = new System.Drawing.Size(129, 37);
-            this.UnlockOutputFileLabel.TabIndex = 20;
-            this.UnlockOutputFileLabel.Text = "Output PDF";
-            this.UnlockOutputFileLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
             // UnlockProcessButton
             // 
             this.UnlockProcessButton.BackColor = System.Drawing.Color.GhostWhite;
@@ -575,38 +630,6 @@ namespace PdfLocker
             this.UnLockOutputFileButton.UseVisualStyleBackColor = false;
             this.UnLockOutputFileButton.Click += new System.EventHandler(this.UnLockOutputFileButton_Click);
             // 
-            // UnlockOutputFileTextBox
-            // 
-            this.UnlockOutputFileTextBox.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12F);
-            this.UnlockOutputFileTextBox.Location = new System.Drawing.Point(338, 583);
-            this.UnlockOutputFileTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.UnlockOutputFileTextBox.Name = "UnlockOutputFileTextBox";
-            this.UnlockOutputFileTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.UnlockOutputFileTextBox.Size = new System.Drawing.Size(449, 34);
-            this.UnlockOutputFileTextBox.TabIndex = 18;
-            // 
-            // UnlockPasswordLabel
-            // 
-            this.UnlockPasswordLabel.Font = new System.Drawing.Font("Consolas", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.UnlockPasswordLabel.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.UnlockPasswordLabel.Location = new System.Drawing.Point(334, 370);
-            this.UnlockPasswordLabel.Name = "UnlockPasswordLabel";
-            this.UnlockPasswordLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.UnlockPasswordLabel.Size = new System.Drawing.Size(129, 37);
-            this.UnlockPasswordLabel.TabIndex = 19;
-            this.UnlockPasswordLabel.Text = "Password";
-            this.UnlockPasswordLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // UnlockPasswordTextBox
-            // 
-            this.UnlockPasswordTextBox.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12F);
-            this.UnlockPasswordTextBox.Location = new System.Drawing.Point(338, 417);
-            this.UnlockPasswordTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.UnlockPasswordTextBox.Name = "UnlockPasswordTextBox";
-            this.UnlockPasswordTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.UnlockPasswordTextBox.Size = new System.Drawing.Size(449, 34);
-            this.UnlockPasswordTextBox.TabIndex = 17;
-            // 
             // UnLockInputFileButton
             // 
             this.UnLockInputFileButton.AllowDrop = true;
@@ -628,27 +651,6 @@ namespace PdfLocker
             this.UnLockInputFileButton.Click += new System.EventHandler(this.UnLockInputFileButton_Click);
             this.UnLockInputFileButton.DragDrop += new System.Windows.Forms.DragEventHandler(this.UnlockInputFileButton_DragDrop);
             this.UnLockInputFileButton.DragEnter += new System.Windows.Forms.DragEventHandler(this.UnlockInputFileButton_DragEnter);
-            // 
-            // UnlockInputFileTextBox
-            // 
-            this.UnlockInputFileTextBox.Font = new System.Drawing.Font("Microsoft New Tai Lue", 12F);
-            this.UnlockInputFileTextBox.Location = new System.Drawing.Point(338, 261);
-            this.UnlockInputFileTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.UnlockInputFileTextBox.Name = "UnlockInputFileTextBox";
-            this.UnlockInputFileTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.UnlockInputFileTextBox.Size = new System.Drawing.Size(425, 34);
-            this.UnlockInputFileTextBox.TabIndex = 5;
-            // 
-            // UnlockInputFileLabel
-            // 
-            this.UnlockInputFileLabel.Font = new System.Drawing.Font("Consolas", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.UnlockInputFileLabel.Location = new System.Drawing.Point(334, 212);
-            this.UnlockInputFileLabel.Name = "UnlockInputFileLabel";
-            this.UnlockInputFileLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.UnlockInputFileLabel.Size = new System.Drawing.Size(129, 37);
-            this.UnlockInputFileLabel.TabIndex = 4;
-            this.UnlockInputFileLabel.Text = "Input PDF";
-            this.UnlockInputFileLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // menuStrip1
             // 
@@ -702,6 +704,30 @@ namespace PdfLocker
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // buttonDarkMode
+            // 
+            this.buttonDarkMode.FlatAppearance.BorderSize = 0;
+            this.buttonDarkMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDarkMode.Image = global::PdfLocker.Properties.Resources.moon16;
+            this.buttonDarkMode.Location = new System.Drawing.Point(932, 0);
+            this.buttonDarkMode.Name = "buttonDarkMode";
+            this.buttonDarkMode.Size = new System.Drawing.Size(80, 37);
+            this.buttonDarkMode.TabIndex = 34;
+            this.buttonDarkMode.UseVisualStyleBackColor = true;
+            this.buttonDarkMode.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // buttonLightMode
+            // 
+            this.buttonLightMode.FlatAppearance.BorderSize = 0;
+            this.buttonLightMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLightMode.Image = global::PdfLocker.Properties.Resources.sunny16;
+            this.buttonLightMode.Location = new System.Drawing.Point(846, 0);
+            this.buttonLightMode.Name = "buttonLightMode";
+            this.buttonLightMode.Size = new System.Drawing.Size(80, 37);
+            this.buttonLightMode.TabIndex = 34;
+            this.buttonLightMode.UseVisualStyleBackColor = true;
+            this.buttonLightMode.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // Form1
             // 
             this.AllowDrop = true;
@@ -709,6 +735,8 @@ namespace PdfLocker
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1168, 899);
+            this.Controls.Add(this.buttonDarkMode);
+            this.Controls.Add(this.buttonLightMode);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -847,6 +875,8 @@ namespace PdfLocker
         private Label label8;
         private ToolTip toolTip1;
         private NotifyIcon notifyIcon1;
+        private Button buttonLightMode;
+        private Button buttonDarkMode;
     }
 }
 
