@@ -3,8 +3,10 @@ using System.Security.Cryptography;
 using System.Text;
 using iText.Kernel.Pdf;
 
+
 namespace Tools
 {
+
     // Class to generate a password with customizable criteria
     public class PasswordGenerator
     {
@@ -57,17 +59,17 @@ namespace Tools
     public class PDFManager
     {
         // Method to lock a PDF with a password and create a protected copy
-        public bool LockPDF(string inputPath, string outputPath, string password)
+        public bool LockPDF(string inputPath, string outputPath, string password, int permission = 0)
         {
             try
             {
-                PdfReader reader = new PdfReader(inputPath);
+                 PdfReader reader = new PdfReader(inputPath);
 
                 PdfWriter writer = new PdfWriter(outputPath, new WriterProperties()
                     .SetStandardEncryption(
                         Encoding.UTF8.GetBytes(password),
                         Encoding.UTF8.GetBytes(password),
-                        EncryptionConstants.ALLOW_PRINTING,
+                        permission, 
                         EncryptionConstants.ENCRYPTION_AES_256
                     ));
 

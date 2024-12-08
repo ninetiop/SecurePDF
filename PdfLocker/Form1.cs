@@ -100,6 +100,24 @@ namespace PdfLocker
 
         }
 
+        private int GetSelectedPermissions()
+        {
+            int permissions = 0;
+            
+            // Checking permissions
+            /*
+            if (chkPrinting.Checked) permissions |= Tools.Permission.ALLOW_PRINTING;
+            if (chkModifyContents.Checked) permissions |= Tools.Permission.ALLOW_MODIFY_CONTENTS;
+            if (chkCopy.Checked) permissions |= Tools.Permission.ALLOW_COPY;
+            if (chkModifyAnnotations.Checked) permissions |= Tools.Permission.ALLOW_MODIFY_ANNOTATIONS;
+            if (chkFillIn.Checked) permissions |= Tools.Permission.ALLOW_FILL_IN;
+            if (chkScreenReaders.Checked) permissions |= Tools.Permission.ALLOW_SCREENREADERS;
+            if (chkAssembly.Checked) permissions |= Tools.Permission.ALLOW_ASSEMBLY;
+            if (chkDegradedPrinting.Checked) permissions |= Tools.Permission.ALLOW_DEGRADED_PRINTING;
+            */
+            return permissions;
+        }
+
         private void LockProcessButton_Click(object sender, EventArgs e)
         {
             try
@@ -124,8 +142,12 @@ namespace PdfLocker
                     return;
                 }
 
+                // Set permissions
+                int permissions = GetSelectedPermissions();
+
+
                 // Call the method to lock the PDF with a password
-                pdfManager.LockPDF(inputFilePath, outputFilePath, password);
+                pdfManager.LockPDF(inputFilePath, outputFilePath, password, permissions);
 
                 MessageBox.Show("The PDF file has been successfully protected!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -252,7 +274,7 @@ namespace PdfLocker
 
         private void lockPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowTab(this.tabControl1, 0);
+            ShowTab(this.tabControl1, 1);
         }
 
         private void ShowTab(TabControl tabControl, int tabIndex)
@@ -266,7 +288,7 @@ namespace PdfLocker
 
         private void unlockPDFToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ShowTab(this.tabControl1, 1);
+            ShowTab(this.tabControl1, 0);
         }
 
         private void buttonVisiblePassword_Click(object sender, EventArgs e)
